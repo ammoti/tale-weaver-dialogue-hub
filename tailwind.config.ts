@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +51,14 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // Gaming theme colors
+        'gamer': {
+          primary: '#9b87f5',
+          secondary: '#7E69AB',
+          dark: '#1A1F2C',
+          accent: '#D946EF',
+          text: '#F5F3FF',
         },
       },
       borderRadius: {

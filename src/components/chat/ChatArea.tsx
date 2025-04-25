@@ -9,8 +9,6 @@ export const ChatArea = () => {
   const { selectedNPC } = useChatStore();
   const [message, setMessage] = useState("");
 
-  const isDisabled = !selectedNPC;
-
   return (
     <div className="flex-1 flex flex-col h-full bg-[#1A1F2C] bg-opacity-95 p-4">
       {!selectedNPC ? (
@@ -23,7 +21,7 @@ export const ChatArea = () => {
               Welcome to Fantasy Chat
             </h2>
             <p className="text-gray-400 text-lg">
-              Select or create a project, chapter, and NPC to start your adventure.
+              Start your adventure by creating or selecting a project and chapter.
             </p>
           </div>
         </div>
@@ -37,11 +35,10 @@ export const ChatArea = () => {
               placeholder="Type your message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              disabled={isDisabled}
               className="bg-[#22272E] border-[#9b87f5] text-white placeholder-gray-400"
             />
             <Button 
-              disabled={isDisabled || !message}
+              disabled={!message}
               className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white min-w-[100px]"
             >
               <SendHorizontal className="w-4 h-4 mr-2" />

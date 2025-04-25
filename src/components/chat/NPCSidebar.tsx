@@ -29,12 +29,12 @@ export const NPCSidebar = () => {
   };
 
   return (
-    <div className={`w-64 h-full bg-white border-r p-4 ${isDisabled ? "opacity-50" : ""}`}>
+    <div className={`w-full h-full bg-[#023430] border-r border-[#0a4b45] p-4 ${isDisabled ? "opacity-50" : ""}`}>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">NPCs</h2>
+        <h2 className="text-lg font-semibold text-gray-300">NPCs</h2>
         <Dialog open={isDisabled ? false : isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <Button variant="ghost" size="icon" disabled={isDisabled}>
+            <Button variant="ghost" size="icon" disabled={isDisabled} className="text-gray-300 hover:text-white hover:bg-[#0a4b45]">
               <Plus className="h-4 w-4" />
             </Button>
           </DialogTrigger>
@@ -71,7 +71,11 @@ export const NPCSidebar = () => {
           <Button
             key={npc.id}
             variant={selectedNPC?.id === npc.id ? "secondary" : "ghost"}
-            className="w-full justify-start"
+            className={`w-full justify-start ${
+              selectedNPC?.id === npc.id 
+                ? "bg-[#0a4b45] text-white hover:bg-[#0a4b45]" 
+                : "text-gray-300 hover:text-white hover:bg-[#0a4b45]"
+            }`}
             onClick={() => setSelectedNPC(npc)}
             disabled={isDisabled}
           >

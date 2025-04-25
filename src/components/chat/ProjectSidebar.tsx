@@ -24,12 +24,12 @@ export const ProjectSidebar = () => {
   };
 
   return (
-    <div className="w-64 h-full bg-white border-r p-4">
+    <div className="w-full h-full bg-[#023430] border-r border-[#0a4b45] p-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Projects</h2>
+        <h2 className="text-lg font-semibold text-gray-300">Projects</h2>
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white hover:bg-[#0a4b45]">
               <Plus className="h-4 w-4" />
             </Button>
           </DialogTrigger>
@@ -66,7 +66,11 @@ export const ProjectSidebar = () => {
           <Button
             key={project.id}
             variant={selectedProject?.id === project.id ? "secondary" : "ghost"}
-            className="w-full justify-start"
+            className={`w-full justify-start ${
+              selectedProject?.id === project.id 
+                ? "bg-[#0a4b45] text-white hover:bg-[#0a4b45]" 
+                : "text-gray-300 hover:text-white hover:bg-[#0a4b45]"
+            }`}
             onClick={() => setSelectedProject(project)}
           >
             {project.name}
